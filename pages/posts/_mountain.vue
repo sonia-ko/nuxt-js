@@ -57,6 +57,7 @@
 
 <script>
 export default {
+  layout: 'product',
   async asyncData({ params, $axios }) {
     const mountain = await $axios.$get(
       `https://api.nuxtjs.dev/mountains/${params.mountain}`
@@ -67,12 +68,6 @@ export default {
 </script>
 
 <style scoped>
-svg {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-}
-
 .product-container {
   display: flex;
   font-size: 1.25rem;
@@ -83,6 +78,10 @@ svg {
   width: 50%;
 }
 .text-section {
+  width: 40%;
+}
+
+.img {
   width: 50%;
 }
 </style>
