@@ -27,7 +27,7 @@
         </div>
         <NuxtLink
           class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
-          :to="mountain.slug"
+          :to="`posts/${mountain.slug}`"
         >
           {{ mountain.title }}
         </NuxtLink>

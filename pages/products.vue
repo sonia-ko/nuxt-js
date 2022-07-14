@@ -1,9 +1,6 @@
 <template>
-  <div class="container mx-auto">
+  <div class="mx-auto">
     <h1 class="font-bold mt-6 text-xl text-center">Mountains</h1>
-    <NuxtLink class="text-left text-grey-600 hover:underline" to="/">
-      Home
-    </NuxtLink>
 
     <div class="container mx-auto mt-8">
       <button
@@ -12,7 +9,7 @@
       >
         Toggle Mountains
       </button>
-      <LazyProductCard v-if="show" />
+      <LazyShopProductCard v-if="show" />
     </div>
   </div>
 </template>
@@ -21,7 +18,7 @@
 export default {
   data() {
     return {
-      show: false,
+      show: true,
     }
   },
   methods: {

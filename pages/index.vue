@@ -1,17 +1,18 @@
 <template>
   <div class="container">
-    <div>
-      <NuxtLogo />
-      <h1 class="title">My nuxt</h1>
-      <NuxtLink to="/about">About </NuxtLink>
-      <div class="links">
-        <a class="button-green" href="https://nuxtjs.org/" target="_blank"
-          >Documentation</a
-        >
-        <a class="button-green" href="https://github.com/" target="_blank"
-          >Github</a
-        >
-        <NuxtLink class="bbutton-green" to="/products">Products</NuxtLink>
+    <div class="mt-4">
+      <!-- Dynamic images -->
+      <h2>Welcome to the page</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos qui
+        veniam temporibus sequi deleniti voluptates nobis totam odit laudantium
+        dolor dolorem fugiat error laboriosam, doloribus reiciendis minima
+        earum, quaerat tenetur?
+      </p>
+      <div class="gallery">
+        <figure v-for="(image, i) in images" :key="i">
+          <img :src="require(`~/assets/imgs/gallery/${image}`)" alt="" />
+        </figure>
       </div>
     </div>
   </div>
@@ -20,26 +21,59 @@
 <script>
 export default {
   name: 'IndexPage',
+  data() {
+    return {
+      images: [
+        'mountains-1.jpg',
+        'mountain-2.jpg',
+        'mountain-3.png',
+        'mountain-4.jpg',
+        'mountain-5.jpg',
+        'mountain-6.jpg',
+      ],
+    }
+  },
 }
 </script>
 
 <style scoped>
-a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 5px;
-  margin: 1rem auto;
-  width: 18rem;
-  color: #fff;
-  background-color: #92d1c3;
-  height: 5rem;
-  font-size: 2rem;
+.gallery {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 0.5rem;
+  grid-column-gap: 0.5rem;
 }
 
-a:hover {
-  color: rgb(124, 120, 120);
-  background-color: #bfdad4;
+h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+p {
+  font-size: 1.2rem;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+.gallery figure {
+  width: 100%;
+  height: 300px;
+}
+
+.gallery figure img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+@media (max-width: 1550px) {
+  a {
+    width: 14rem;
+    height: 5rem;
+    font-size: 1.7rem;
+  }
 }
 </style>
